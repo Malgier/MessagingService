@@ -1,0 +1,35 @@
+﻿@model MessagingMicroService.Model.MessageVM
+
+<div>
+    <h4>Message</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderUserID)
+        </dt>
+        <dd>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MessageContent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateSent)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="MyMessages"asp-route-id="@Model.ReceiverUserID">Back to My Messages</a>
+</div>

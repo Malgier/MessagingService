@@ -1,0 +1,38 @@
+﻿@model MessagingMicroService.Model.MessageVM
+@{
+    ViewData["Title"] = "Send";
+}
+
+
+<h2>Send Message</h2>
+<div>
+    <h4>Message to @Model.UserName</h4>
+    <hr />
+    @using (Html.BeginForm("SaveMessage", "MessageMVC", FormMethod.Post))
+    {
+        <fieldset>
+            <dl class="dl-horizontal">
+                @Html.HiddenFor(model => model.MessageID)
+                @Html.HiddenFor(model => model.DateSent)
+                @Html.HiddenFor(model => model.SenderUserID)
+                @Html.HiddenFor(model => model.ReceiverUserID)
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd>
+                    @Html.TextBoxFor(model => model.Title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageContent)
+                </dt>
+                <dd>
+                    @Html.TextBoxFor(model => model.MessageContent)
+                </dd>
+            </dl>
+
+                <input type="hidden" asp-for="MessageID" />
+                <input type="submit" value="Send" class="btn btn-default" /> |
+        </fieldset>
+    }
+</div>

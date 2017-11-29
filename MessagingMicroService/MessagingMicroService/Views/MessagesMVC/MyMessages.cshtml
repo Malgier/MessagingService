@@ -1,0 +1,44 @@
+﻿@model MessagingMicroService.Model.MyMessageVM
+<h2>Messages for @Model.ReveiverName</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MyMessages[0].SenderUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyMessages[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyMessages[0].MessageContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyMessages[0].DateSent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.MyMessages.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.SenderNames[i])
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MyMessages[i].Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MyMessages[i].MessageContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MyMessages[i].DateSent)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@Model.MyMessages[i].MessageID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@Model.MyMessages[i].MessageID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

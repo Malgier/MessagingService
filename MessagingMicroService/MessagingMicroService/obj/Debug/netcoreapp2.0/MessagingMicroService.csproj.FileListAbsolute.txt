@@ -1,0 +1,26 @@
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.deps.json
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.runtimeconfig.json
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.runtimeconfig.dev.json
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.dll
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.csprojResolveAssemblyReference.cache
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.csproj.CoreCompileInputs.cache
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.AssemblyInfoInputs.cache
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.AssemblyInfo.cs
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.pdb
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\DomainModel.dll
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\DomainModel.pdb
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.dll
+U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.pdb
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.deps.json
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.runtimeconfig.json
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.runtimeconfig.dev.json
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.dll
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\MessagingMicroService.pdb
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\DomainModel.dll
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\bin\Debug\netcoreapp2.0\DomainModel.pdb
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.csprojResolveAssemblyReference.cache
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.csproj.CoreCompileInputs.cache
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.AssemblyInfoInputs.cache
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.AssemblyInfo.cs
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.dll
+C:\Users\Will\Desktop\SA\MessagingMicroService\MessagingMicroService\obj\Debug\netcoreapp2.0\MessagingMicroService.pdb
