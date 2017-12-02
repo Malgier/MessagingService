@@ -14,7 +14,7 @@ namespace DomainModel
         public String MessageContent { get; set; }
         public DateTime DateSent { get; set; }
         [DisplayName("From")]
-        public int SenderUserID { get; set; }
-        public int ReceiverUserID { get; set; }
+        public string SenderUserID { get; set; }
+        public string ReceiverUserID { get; set; }
     }
 }

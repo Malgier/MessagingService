@@ -33,18 +33,18 @@ namespace MessagingMicroService.Controllers
         // GET: MessagesMVC/MyMesages/5
         [HttpGet]
         [Route("MyMessages/{id}")]
-        public IActionResult MyMessages(int id)
+        public IActionResult MyMessages(string userId)
         {
-            IActionResult HttpResult = messageCont.GetByUser(id);
+            IActionResult HttpResult = messageCont.GetByUser(userId);
 
             if (HttpResult is OkObjectResult)
             {
                 var result = HttpResult as OkObjectResult;
                 IEnumerable<Message> content = result.Value as IEnumerable<Message>;
-                var myMessages = content.Where(x => x.ReceiverUserID == id).ToList();
+                var myMessages = content.Where(x => x.ReceiverUserID == userId).ToList();
 
                 Client client = new Client();
-                User user = client.GetUser("http://localhost:57520/", "api/User/" + id);
+                User user = client.GetUser("http://localhost:57520/", "api/User/" + userId);
                 List<User> senderNames = client.GetUsers("http://localhost:57520/", "api/User");
                 List<string> senderFullNames = new List<string>();
 
@@ -70,17 +70,17 @@ namespace MessagingMicroService.Controllers
         [Route("Send/{receiverId}")]
         [HttpGet]
         // GET: MessagesMVC/Send
-        public IActionResult Send(int receiverId = 1)
+        public IActionResult Send(string receiverId = "")
         {
             User user = client.GetUser("http://localhost:57520/", "api/User/" + receiverId);
 
-            int userID = Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            string userID = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             MessageVM vm = new MessageVM()
             {
                 DateSent = DateTime.Now,
                 ReceiverUserID = receiverId,
-                SenderUserID = userID,
+                SenderUserID = "",
                 UserName = user.Name
             };
 

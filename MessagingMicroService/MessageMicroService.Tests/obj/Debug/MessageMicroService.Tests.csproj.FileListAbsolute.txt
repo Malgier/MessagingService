@@ -1,0 +1,13 @@
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\obj\Debug\MessageMicroService.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\obj\Debug\MessageMicroService.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\MessageMicroService.Tests.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\MessageMicroService.Tests.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\obj\Debug\MessageMicroService.Tests.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessageMicroService.Tests\obj\Debug\MessageMicroService.Tests.pdb

@@ -39,7 +39,7 @@ namespace MessagingMicroService.Controllers
 
         // GET api/messages/5
         [HttpGet("{userId}")]
-        public IActionResult GetByUser(int userId)
+        public IActionResult GetByUser(string userId)
         {
             var message = context.Messages.Where(x => x.ReceiverUserID == userId);
             return Ok(message);
