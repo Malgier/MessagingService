@@ -9,9 +9,11 @@ using DomainModel;
 using System.Security.Claims;
 using MessagingMicroService.Model;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MessagingMicroService.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     public class MessagesMVCController : Controller
     {

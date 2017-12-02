@@ -24,3 +24,16 @@ C:\Users\Will\Desktop\SA\MessagingMicroService\DomainModel\obj\Debug\netstandard
 C:\Users\Will\Desktop\SA\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.AssemblyInfo.cs
 C:\Users\Will\Desktop\SA\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.dll
 C:\Users\Will\Desktop\SA\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\DomainModel.deps.json
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\DomainModel.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\DomainModel.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.xml
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.csprojResolveAssemblyReference.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.AssemblyInfoInputs.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.AssemblyInfo.cs
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\DomainModel\obj\Debug\netstandard2.0\DomainModel.pdb

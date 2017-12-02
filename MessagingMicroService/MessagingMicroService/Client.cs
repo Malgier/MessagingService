@@ -15,23 +15,30 @@ namespace MessagingMicroService
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri(url);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
-
-                HttpResponseMessage response = client.GetAsync(location).Result;
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var result = response.Content.ReadAsAsync<User>().Result;
+                    client.BaseAddress = new Uri(url);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
 
-                    response.Dispose();
+                    HttpResponseMessage response = client.GetAsync(location).Result;
 
-                    return result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = response.Content.ReadAsAsync<User>().Result;
+
+                        response.Dispose();
+
+                        return result;
+                    }
+                    else
+                    {
+                        return new User();
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    return null;
+                    return new User();
                 }
             }
         }
@@ -40,23 +47,30 @@ namespace MessagingMicroService
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri(url);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
-
-                HttpResponseMessage response = client.GetAsync(location).Result;
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var result = response.Content.ReadAsAsync<List<User>>().Result;
+                    client.BaseAddress = new Uri(url);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
 
-                    response.Dispose();
+                    HttpResponseMessage response = client.GetAsync(location).Result;
 
-                    return result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = response.Content.ReadAsAsync<List<User>>().Result;
+
+                        response.Dispose();
+
+                        return result;
+                    }
+                    else
+                    {
+                        return new List<User>();
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    return null;
+                    return new List<User>();
                 }
             }
         }

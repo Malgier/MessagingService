@@ -186,11 +186,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\DomainModel\\DomainModel.csproj",
+      "projectUniqueName": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj",
       "projectName": "DomainModel",
-      "projectPath": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\DomainModel\\DomainModel.csproj",
+      "projectPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj",
       "packagesPath": "C:\\Users\\Will\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\DomainModel\\obj\\",
+      "outputPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

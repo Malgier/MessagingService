@@ -13250,11 +13250,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
+      "projectUniqueName": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
       "projectName": "MessagingMicroService",
-      "projectPath": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
+      "projectPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
       "packagesPath": "C:\\Users\\Will\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\MessagingMicroService\\obj\\",
+      "outputPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13273,8 +13273,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Users\\Will\\Desktop\\SA\\MessagingMicroService\\DomainModel\\DomainModel.csproj"
+            "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj"
             }
           }
         }

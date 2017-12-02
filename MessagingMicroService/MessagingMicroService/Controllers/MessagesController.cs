@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DomainModel;
 using System.Web.Http.Description;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MessagingMicroService.Controllers
 {
