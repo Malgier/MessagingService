@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Primitives;
 
 namespace MessagingMicroService
 {
@@ -67,29 +68,33 @@ namespace MessagingMicroService
             {
                 app.UseDeveloperExceptionPage();
 
-                //app.Use(async (context, next) =>
-                //{
-                //    //Fake token
-                //    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MY TOP SECRET TEST KEY"));
-                //    var claims = new Claim[]
-                //    {
-                //        new Claim(ClaimTypes.NameIdentifier, "1"),
-                //        new Claim(ClaimTypes.Role, "Customer")
-                //    };
+                app.Use(async (context, next) =>
+                {
+                    //Fake token
+                    StringValues passedToken = new StringValues();
+                    context.Request.Headers.TryGetValue("Authorization", out passedToken);
+                    if (passedToken.ToString() == "")
+                    {
+                        var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MY TOP SECRET TEST KEY"));
+                        var claims = new Claim[]
+                        {
+                        new Claim(ClaimTypes.NameIdentifier, "1"),
+                        new Claim(ClaimTypes.Role, "ActiveUser")
+                        };
 
-                //    var token = new JwtSecurityToken(
-                //        issuer: "issuer",
-                //        audience: "audience",
-                //        claims: claims,
-                //        notBefore: DateTime.Now.Subtract(new TimeSpan(2, 1, 1)),
-                //        expires: DateTime.Now.AddDays(7),
-                //        signingCredentials: new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256)
-                //    );
+                        var token = new JwtSecurityToken(
+                            issuer: "issuer",
+                            audience: "audience",
+                            claims: claims,
+                            notBefore: DateTime.Now.Subtract(new TimeSpan(2, 1, 1)),
+                            expires: DateTime.Now.AddDays(7),
+                            signingCredentials: new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256)
+                        );
 
-                //    context.Request.Headers.Add("Authorization", "Bearer " + new JwtSecurityTokenHandler().WriteToken(token));
-
-                //    await next.Invoke();
-                //});
+                        context.Request.Headers.Add("Authorization", "Bearer " + new JwtSecurityTokenHandler().WriteToken(token));
+                    }
+                    await next.Invoke();
+                });
             }
 
             app.UseStaticFiles();
