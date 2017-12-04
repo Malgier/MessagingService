@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Primitives;
+using System.IO;
 
 namespace MessagingMicroService
 {
@@ -23,7 +24,12 @@ namespace MessagingMicroService
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile(String.Format("appsettings.{0}.json", Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")), optional: true)
+                .AddJsonFile(String.Format("appsettings.{0}.json", Environment.GetEnvironmentVariable("AppSettings")), optional: true)
+                .Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -32,7 +38,7 @@ namespace MessagingMicroService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton(Configuration);
             services.AddDbContext<MessageContext>(options => options.UseSqlServer(Configuration.GetValue<string>("ConnectionStrings:MessageDatabase")));
 
             var tokenValidationParameters = new TokenValidationParameters

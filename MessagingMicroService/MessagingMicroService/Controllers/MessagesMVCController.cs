@@ -32,7 +32,7 @@ namespace MessagingMicroService.Controllers
 
         // GET: MessagesMVC/MyMesages/5
         [HttpGet]
-        [Route("MyMessages/{id}")]
+        [Route("MyMessages/{userId}")]
         public IActionResult MyMessages(string userId)
         {
             IActionResult HttpResult = messageCont.GetByUser(userId);
@@ -44,8 +44,8 @@ namespace MessagingMicroService.Controllers
                 var myMessages = content.Where(x => x.ReceiverUserID == userId).ToList();
 
                 Client client = new Client();
-                User user = client.GetUser("http://localhost:57520/", "api/User/" + userId);
-                List<User> senderNames = client.GetUsers("http://localhost:57520/", "api/User");
+                User user = client.GetUser("http://localhost:51520/", "api/User/" + userId);
+                List<User> senderNames = client.GetUsers("http://localhost:51520/", "api/User");
                 List<string> senderFullNames = new List<string>();
 
                 foreach (User senderUser in senderNames)
@@ -72,7 +72,7 @@ namespace MessagingMicroService.Controllers
         // GET: MessagesMVC/Send
         public IActionResult Send(string receiverId = "")
         {
-            User user = client.GetUser("http://localhost:57520/", "api/User/" + receiverId);
+            User user = client.GetUser("http://localhost:51520/", "api/User/" + receiverId);
 
             string userID = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -80,7 +80,7 @@ namespace MessagingMicroService.Controllers
             {
                 DateSent = DateTime.Now,
                 ReceiverUserID = receiverId,
-                SenderUserID = "",
+                SenderUserID = userID,
                 UserName = user.Name
             };
 
@@ -104,7 +104,7 @@ namespace MessagingMicroService.Controllers
                 };
 
                 messageCont.SaveMessage(message);
-                return RedirectToAction(nameof(MyMessages));
+                return Ok();
             }
             return View(vm);
         }
@@ -119,7 +119,7 @@ namespace MessagingMicroService.Controllers
             {
                 var result = HttpResult as OkObjectResult;
                 Message content = result.Value as Message;
-                User user = client.GetUser("http://localhost:57520/", "api/User/" + content.SenderUserID);
+                User user = client.GetUser("http://localhost:51520/", "api/User/" + content.SenderUserID);
                 MessageVM vm = new MessageVM()
                 {
                     DateSent = content.DateSent,

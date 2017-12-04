@@ -13241,7 +13241,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\p4068830\\.nuget\\packages\\": {},
+    "C:\\Users\\Will\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13250,17 +13250,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "U:\\University_3\\Software Architecture\\New folder\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
+      "projectUniqueName": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
       "projectName": "MessagingMicroService",
-      "projectPath": "U:\\University_3\\Software Architecture\\New folder\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
-      "packagesPath": "C:\\Users\\p4068830\\.nuget\\packages\\",
-      "outputPath": "U:\\University_3\\Software Architecture\\New folder\\MessagingService\\MessagingMicroService\\MessagingMicroService\\obj\\",
+      "projectPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\MessagingMicroService.csproj",
+      "packagesPath": "C:\\Users\\Will\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\MessagingMicroService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\p4068830\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Will\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13273,8 +13273,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "U:\\University_3\\Software Architecture\\New folder\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "U:\\University_3\\Software Architecture\\New folder\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj"
+            "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\Will\\Documents\\GitHub\\MessagingService\\MessagingMicroService\\DomainModel\\DomainModel.csproj"
             }
           }
         }
