@@ -13,5 +13,10 @@ namespace MessagingMicroService.Model
         public string Email { get; set; }
         public bool Authorised { get; set; }
         public bool Active { get; set; }
+
+        internal static object FindFirst(object nameIdentifier)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

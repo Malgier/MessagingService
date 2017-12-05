@@ -13,36 +13,34 @@ namespace MessagingMicroService.Controllers
     public class MessagesController : Controller
     {
         private MessageContext context;
+        private Messaging messaging;
 
         public MessagesController(MessageContext cxt)
         {
             context = cxt;
-            cxt.Database.EnsureCreated();
+            messaging = new Messaging(context);
+            //cxt.Database.EnsureCreated();
         }
         // GET api/messages
         [HttpGet]
         [ResponseType(typeof(IEnumerable<Message>))]
         public IActionResult Get()
         {
-            var messages = context.Messages;
-
-            return Ok(messages);
+            return Ok(context.Messages);
         }
 
         // GET api/messages/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var message = context.Messages.SingleOrDefault(x => x.MessageID == id);
-            return Ok(message);
+            return Ok(context.Messages.SingleOrDefault(x => x.MessageID == id));
         }
 
         // GET api/messages/5
         [HttpGet("{userId}")]
         public IActionResult GetByUser(string userId)
         {
-            var message = context.Messages.Where(x => x.ReceiverUserID == userId);
-            return Ok(message);
+            return Ok(context.Messages.Where(x => x.ReceiverUserID == userId));
         }
 
         // POST api/messages
@@ -50,39 +48,14 @@ namespace MessagingMicroService.Controllers
         [HttpPost]
         public IActionResult SaveMessage([FromBody]Message message)
         {
-            if (message == null)
-            {
-                return BadRequest();
-            }
-
-            context.Messages.Add(message);
-            context.SaveChanges();
-
-            return CreatedAtRoute("", new { id = message.MessageID }, message);
+            return StatusCode(messaging.ApiSaveMessage(message));
         }
 
         // PUT api/messages/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Message message)
         {
-            if (message == null || message.MessageID != id)
-            {
-                return BadRequest();
-            }
-
-            var mess = context.Messages.SingleOrDefault(x => x.MessageID == id);
-            if (mess == null)
-            {
-                return NotFound();
-            }
-
-            mess.Title = message.Title;
-            mess.MessageContent = message.MessageContent;
-            mess.DateSent = message.DateSent;
-
-            context.Messages.Update(mess);
-            context.SaveChanges();
-            return new NoContentResult();
+            return StatusCode(messaging.ApiPut(id, message));
         }
 
         // DELETE api/messages/5
@@ -97,7 +70,7 @@ namespace MessagingMicroService.Controllers
 
             context.Messages.Remove(message);
             context.SaveChanges();
-            return new NoContentResult();
+            return new OkResult();
         }
     }
 }

@@ -12,6 +12,6 @@ namespace DomainModel
 
         }
 
-        public DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
     }
 }

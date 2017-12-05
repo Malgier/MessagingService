@@ -20,14 +20,14 @@ namespace MessagingMicroService.Controllers
         private readonly MessageContext _context;
         private MessagesController messageCont;
         private Client client;
-
+        private Messaging messaging;
 
         public MessagesMVCController(MessageContext context)
         {
             _context = context;
             messageCont = new MessagesController(_context);
             client = new Client();
-
+            messaging = new Messaging(_context);
         }
 
         // GET: MessagesMVC/MyMesages/5
@@ -35,36 +35,7 @@ namespace MessagingMicroService.Controllers
         [Route("MyMessages/{userId}")]
         public IActionResult MyMessages(string userId)
         {
-            IActionResult HttpResult = messageCont.GetByUser(userId);
-
-            if (HttpResult is OkObjectResult)
-            {
-                var result = HttpResult as OkObjectResult;
-                IEnumerable<Message> content = result.Value as IEnumerable<Message>;
-                var myMessages = content.Where(x => x.ReceiverUserID == userId).ToList();
-
-                Client client = new Client();
-                User user = client.GetUser("http://localhost:51520/", "api/User/" + userId);
-                List<User> senderNames = client.GetUsers("http://localhost:51520/", "api/User");
-                List<string> senderFullNames = new List<string>();
-
-                foreach (User senderUser in senderNames)
-                {
-                    senderFullNames.Add(senderUser.Name);
-                }
-
-                MyMessageVM vm = new MyMessageVM()
-                {
-                    MyMessages = myMessages,
-                    ReveiverName = user.Name,
-                    SenderNames = senderFullNames
-                };
-                return View(vm);
-            }
-            else
-            {
-                return NotFound();
-            }
+            return View(messaging.GetMyMessageVM(userId));
         }
 
         [Route("Send/{receiverId}")]
@@ -72,19 +43,7 @@ namespace MessagingMicroService.Controllers
         // GET: MessagesMVC/Send
         public IActionResult Send(string receiverId = "")
         {
-            User user = client.GetUser("http://localhost:51520/", "api/User/" + receiverId);
-
-            string userID = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            MessageVM vm = new MessageVM()
-            {
-                DateSent = DateTime.Now,
-                ReceiverUserID = receiverId,
-                SenderUserID = userID,
-                UserName = user.Name
-            };
-
-            return View(vm);
+            return View(messaging.GetSendVM(receiverId, User.FindFirst(ClaimTypes.NameIdentifier).Value));
         }
 
         [Route("SaveMessage")]
@@ -94,17 +53,7 @@ namespace MessagingMicroService.Controllers
         {
             if (ModelState.IsValid)
             {
-                Message message = new Message()
-                {
-                    Title = vm.Title,
-                    MessageContent = vm.MessageContent,
-                    DateSent = vm.DateSent,
-                    SenderUserID = vm.SenderUserID,
-                    ReceiverUserID = vm.ReceiverUserID
-                };
-
-                messageCont.SaveMessage(message);
-                return Ok();
+                return StatusCode(messaging.MVCSend(vm));
             }
             return View(vm);
         }
@@ -113,29 +62,9 @@ namespace MessagingMicroService.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            IActionResult HttpResult = messageCont.Get(id);
-
-            if (HttpResult is OkObjectResult)
-            {
-                var result = HttpResult as OkObjectResult;
-                Message content = result.Value as Message;
-                User user = client.GetUser("http://localhost:51520/", "api/User/" + content.SenderUserID);
-                MessageVM vm = new MessageVM()
-                {
-                    DateSent = content.DateSent,
-                    MessageContent = content.MessageContent,
-                    Title = content.Title,
-                    UserName = user.Name
-
-                };
-
-                return View(vm);
-            }
-            else
-            {
-                return NotFound();
-            }
+            return View(messaging.GetDetailsVM(id));
         }
+
         // GET: MessagesMVC/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
