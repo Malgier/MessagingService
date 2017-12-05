@@ -13,6 +13,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using MessagingMicroService.Model;
 
 namespace MessageMicroService.Tests
 {
@@ -35,7 +36,7 @@ namespace MessageMicroService.Tests
                 MessageID = 1,
                 Title = "Test Title",
                 MessageContent = "Test content",
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = "1",
                 SenderUserID = "2"
             };
@@ -45,7 +46,7 @@ namespace MessageMicroService.Tests
                 MessageID = 2,
                 Title = "Test2 Title",
                 MessageContent = "Test2 content",
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = "3",
                 SenderUserID = "4"
             };
@@ -93,6 +94,7 @@ namespace MessageMicroService.Tests
             };
         }
 
+        #region Api Tests
         [TestMethod]
         public void ApiGetAllMessageSuccess()
         {
@@ -138,12 +140,12 @@ namespace MessageMicroService.Tests
         [TestMethod]
         public void ApiSaveMessageSuccess()
         {
-            var response = (OkResult)ApiController.SaveMessage(new Message()
+            var response = (StatusCodeResult)ApiController.SaveMessage(new Message()
             {
                 MessageID = 3,
                 Title = "Test Message 3",
                 MessageContent = "Test Content 3",
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = "5",
                 SenderUserID = "6"
             });
@@ -153,19 +155,19 @@ namespace MessageMicroService.Tests
         [TestMethod]
         public void ApiSaveMessageFail()
         {
-            var response = (NotFoundResult)ApiController.SaveMessage(null);
+            var response = (StatusCodeResult)ApiController.SaveMessage(null);
             Assert.AreEqual(404, response.StatusCode);
         }
 
         [TestMethod]
         public void ApiPutSuccess()
         {
-            var response = (OkResult)ApiController.Put(2, new Message()
+            var response = (StatusCodeResult)ApiController.Put(2, new Message()
             {
                 MessageID = 2,
                 Title = "Test Message 2 Update",
                 MessageContent = "Test Content 2 Update",
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = "3",
                 SenderUserID = "4"
             });
@@ -175,19 +177,19 @@ namespace MessageMicroService.Tests
         [TestMethod]
         public void ApiPutFailBadRequest()
         {
-            var response = (BadRequestResult)ApiController.Put(1, null);
+            var response = (StatusCodeResult)ApiController.Put(1, null);
             Assert.AreEqual(400, response.StatusCode);
         }
 
         [TestMethod]
         public void ApiPutFailNotFound()
         {
-            var response = (NotFoundResult)ApiController.Put(7, new Message()
+            var response = (StatusCodeResult)ApiController.Put(7, new Message()
             {
                 MessageID = 7,
                 Title = "Test Message 2 Update",
                 MessageContent = "Test Content 2 Update",
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = "3",
                 SenderUserID = "4"
             });
@@ -207,5 +209,71 @@ namespace MessageMicroService.Tests
             var response = (NotFoundResult)ApiController.Delete(7);
             Assert.AreEqual(404, response.StatusCode);
         }
+        #endregion
+
+        #region MVC Tests
+
+        [TestMethod]
+        public void MVCMyMessagesSuccess()
+        {
+            MyMessageVM vm = new MyMessageVM()
+            {
+                MyMessages = new List<Message>() { testMessage1 },
+                ReveiverName = null,
+                SenderNames = new List<string>()
+
+            };
+            var response = (ViewResult)MvcController.MyMessages("1");
+            var model = (MyMessageVM)response.Model;
+            Assert.AreEqual(vm.MyMessages[0].MessageID, model.MyMessages[0].MessageID);
+        }
+
+        [TestMethod]
+        public void MVCSendSuccess()
+        {
+            MessageVM vm = new MessageVM()
+            {
+                DateSent = DateTime.Now.Date,
+                ReceiverUserID = "1",
+                SenderUserID = "1",
+                UserName = null
+            };
+            var response = (ViewResult)MvcController.Send("1");
+            var obj = (MessageVM)response.Model;
+            Assert.AreEqual(vm.MessageID, obj.MessageID);
+        }
+
+        [TestMethod]
+        public void MVCSaveMessageSuccess()
+        {
+            var response = (StatusCodeResult)MvcController.SaveMessage(new MessageVM()
+            {
+                Title = "Test Title Save",
+                MessageContent = "Test Content Save",
+                DateSent = DateTime.Now.Date,
+                ReceiverUserID = "1",
+                SenderUserID = "1",
+                UserName = null
+            });
+            Assert.AreEqual(200, response.StatusCode);
+        }
+
+        [TestMethod]
+        public void MVCDetailssuccess()
+        {
+            MessageVM vm = new MessageVM()
+            {
+                Title = testMessage1.Title,
+                MessageContent = testMessage1.MessageContent,
+                DateSent = testMessage1.DateSent,
+                ReceiverUserID = testMessage1.ReceiverUserID,
+                SenderUserID = testMessage1.SenderUserID,
+                UserName = null
+            };
+            var response = (ViewResult)MvcController.Details(1);
+            var obj = (MessageVM)response.Model;
+            Assert.AreEqual(vm.MessageID, obj.MessageID);
+        }
+        #endregion
     }
 }

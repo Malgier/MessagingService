@@ -13,12 +13,12 @@ namespace MessagingMicroService.Controllers
     public class MessagesController : Controller
     {
         private MessageContext context;
-        private Messaging messaging;
+        private ApiMessagingLogic messaging;
 
         public MessagesController(MessageContext cxt)
         {
             context = cxt;
-            messaging = new Messaging(context);
+            messaging = new ApiMessagingLogic(cxt);
             //cxt.Database.EnsureCreated();
         }
         // GET api/messages

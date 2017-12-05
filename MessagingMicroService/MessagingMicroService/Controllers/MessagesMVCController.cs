@@ -18,14 +18,12 @@ namespace MessagingMicroService.Controllers
     public class MessagesMVCController : Controller
     {
         private readonly MessageContext _context;
-        private MessagesController messageCont;
         private Client client;
         private Messaging messaging;
 
         public MessagesMVCController(MessageContext context)
         {
             _context = context;
-            messageCont = new MessagesController(_context);
             client = new Client();
             messaging = new Messaging(_context);
         }

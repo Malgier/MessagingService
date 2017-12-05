@@ -38,10 +38,11 @@ namespace MessagingMicroService
                 List<User> senderNames = client.GetUsers("http://localhost:51520/", "api/User");
                 List<string> senderFullNames = new List<string>();
 
-                foreach (User senderUser in senderNames)
-                {
-                    senderFullNames.Add(senderUser.Name);
-                }
+                if(senderNames != null)
+                    foreach (User senderUser in senderNames)
+                    {
+                        senderFullNames.Add(senderUser.Name);
+                    }
 
                 MyMessageVM vm = new MyMessageVM()
                 {
@@ -63,7 +64,7 @@ namespace MessagingMicroService
 
             MessageVM vm = new MessageVM()
             {
-                DateSent = DateTime.Now,
+                DateSent = DateTime.Now.Date,
                 ReceiverUserID = receiverId,
                 SenderUserID = userId,
                 UserName = user.Name
@@ -118,54 +119,6 @@ namespace MessagingMicroService
             {
                 return StatusCodes.Status404NotFound;
             }
-        }
-
-        public int ApiSaveMessage(Message message)
-        {
-            if (message == null)
-            {
-                return StatusCodes.Status404NotFound;
-            }
-
-            _context.Messages.Add(message);
-            _context.SaveChanges();
-
-            return StatusCodes.Status200OK;
-        }
-
-        public int ApiPut(int id, Message message)
-        {
-            if (message == null || message.MessageID != id)
-            {
-                return StatusCodes.Status400BadRequest;
-            }
-
-            var mess = _context.Messages.SingleOrDefault(x => x.MessageID == id);
-            if (mess == null)
-            {
-                return StatusCodes.Status404NotFound;
-            }
-
-            mess.Title = message.Title;
-            mess.MessageContent = message.MessageContent;
-            mess.DateSent = message.DateSent;
-
-            _context.Messages.Update(mess);
-            _context.SaveChanges();
-            return StatusCodes.Status200OK;
-        }
-
-        public int ApiDelete(int id)
-        {
-            var message = _context.Messages.SingleOrDefault(x => x.MessageID == id);
-            if (message == null)
-            {
-                return StatusCodes.Status404NotFound;
-            }
-
-            _context.Messages.Remove(message);
-            _context.SaveChanges();
-            return StatusCodes.Status200OK;
         }
     }
 }
