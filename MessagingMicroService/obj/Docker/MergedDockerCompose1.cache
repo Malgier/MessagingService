@@ -1,0 +1,21 @@
+services:
+  messagingmicroservice:
+    build:
+      args:
+        source: obj/Docker/publish/
+      context: C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService
+      dockerfile: MessagingMicroService/Dockerfile
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: messaging-service
+    labels:
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - 80/tcp
+    volumes:
+    - C:\Users\Will\vsdbg:/remote_debugger:ro
+version: '3.0'

@@ -1,0 +1,9 @@
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=MessagingMicroService
+--content-root=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService
+--file=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService\Views\MessagesMVC\Delete.cshtml
+--file=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService\Views\MessagesMVC\Details.cshtml
+--file=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService\Views\MessagesMVC\MyMessages.cshtml
+--file=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService\Views\MessagesMVC\Send.cshtml
+--file=C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\MessagingMicroService\Views\Shared\_ValidationScriptsPartial.cshtml

@@ -1,0 +1,1 @@
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

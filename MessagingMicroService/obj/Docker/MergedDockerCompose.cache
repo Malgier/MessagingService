@@ -1,16 +1,11 @@
-networks:
-  default:
-    external:
-      name: nat
 services:
   messagingmicroservice:
     build:
-      context: U:\University_3\Software Architecture\MessagingMicroService\MessagingMicroService
-      dockerfile: Dockerfile
+      context: C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService
+      dockerfile: MessagingMicroService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: messagingmicroservice
+    image: messaging-service
     ports:
-    - '80'
+    - 80/tcp
 version: '3.0'
-volumes: {}

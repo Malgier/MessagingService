@@ -1,0 +1,8 @@
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Release\WebTest1.webtest
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Release\LoadTest1.loadtest
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Release\WebAndLoadTestMessagingService.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Release\WebAndLoadTestMessagingService.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Release\WebAndLoadTestMessagingService.csproj.CoreCompileInputs.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Release\WebAndLoadTestMessagingService.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Release\WebAndLoadTestMessagingService.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Release\WebAndLoadTestMessagingService.csprojResolveAssemblyReference.cache

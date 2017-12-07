@@ -25,11 +25,10 @@ namespace MessagingMicroService
         public Startup(IConfiguration configuration)
         {
             Configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile(String.Format("appsettings.{0}.json", Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")), optional: true)
-                .AddJsonFile(String.Format("appsettings.{0}.json", Environment.GetEnvironmentVariable("AppSettings")), optional: true)
-                .Build();
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("appsettings.json")
+                            .AddJsonFile(String.Format("appsettings.{0}.json", Environment.GetEnvironmentVariable("AppSettings")), optional: true)
+                            .Build();
         }
 
         public IConfiguration Configuration { get; }

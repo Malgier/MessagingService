@@ -6,4 +6,4 @@ C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoad
 C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.csproj.CoreCompileInputs.cache
 C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.dll
 C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.pdb
-C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\WebTest2.webtest
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\LoadTest1.loadtest
