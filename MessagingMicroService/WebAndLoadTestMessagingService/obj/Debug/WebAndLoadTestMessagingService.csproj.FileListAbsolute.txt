@@ -1,0 +1,9 @@
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\WebTest1.webtest
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\WebAndLoadTestMessagingService.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\WebAndLoadTestMessagingService.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.csprojResolveAssemblyReference.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.csproj.CoreCompileInputs.cache
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.dll
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\obj\Debug\WebAndLoadTestMessagingService.pdb
+C:\Users\Will\Documents\GitHub\MessagingService\MessagingMicroService\WebAndLoadTestMessagingService\bin\Debug\WebTest2.webtest

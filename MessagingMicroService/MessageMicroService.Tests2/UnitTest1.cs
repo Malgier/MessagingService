@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using MessagingMicroService.Model;
+using MessagingMicroService;
 
 namespace MessageMicroService.Tests
 {
@@ -22,6 +23,8 @@ namespace MessageMicroService.Tests
     {
         MessagesMVCController MvcController;
         MessagesController ApiController;
+        Messaging messaging;
+        ApiMessagingLogic apiMessaging;
         Mock<MessageContext> mockContext;
         Message testMessage1;
         Message testMessage2;
@@ -74,6 +77,9 @@ namespace MessageMicroService.Tests
             mockContext.Setup(x => x.Messages).Returns(dbSet.Object);
 
             var testClaims = new ClaimsPrincipal(new ClaimsIdentity(TokenGenerator.UserToken("Customer").Claims));
+
+            messaging = new Messaging(mockContext.Object);
+            apiMessaging = new ApiMessagingLogic(mockContext.Object);
 
             ApiController = new MessagesController(mockContext.Object);
             ApiController.ControllerContext = new ControllerContext()
@@ -274,6 +280,138 @@ namespace MessageMicroService.Tests
             var obj = (MessageVM)response.Model;
             Assert.AreEqual(vm.MessageID, obj.MessageID);
         }
+        #endregion
+
+        #region Messaging Tests
+
+        [TestMethod]
+        public void GetMyMessageVMSuccess()
+        {
+            var result = messaging.GetMyMessageVM("1");
+            Assert.AreEqual(testMessage1.Title, result.MyMessages[0].Title);
+        }
+
+        [TestMethod]
+        public void GetMyMessageVMFail()
+        {
+            var result = messaging.GetMyMessageVM("8");
+            Assert.AreEqual(0, result.MyMessages.Count);
+        }
+
+        [TestMethod]
+        public void GetSendVMSuccess()
+        {
+            var result = messaging.GetSendVM("1", "2");
+            Assert.AreEqual(testMessage1.ReceiverUserID, result.ReceiverUserID);
+        }
+
+        [TestMethod]
+        public void GetDetailsVMSuccess()
+        {
+            var result = messaging.GetDetailsVM(1);
+            Assert.AreEqual(testMessage1.Title, result.Title);
+        }
+
+        [TestMethod]
+        public void GetDetailsVMFail()
+        {
+            var result = messaging.GetDetailsVM(9);
+            Assert.AreEqual(null, result.Title);
+        }
+
+        [TestMethod]
+        public void MVCSaveSuccess()
+        {
+            MessageVM vm = new MessageVM()
+            {
+                MessageID = 3,
+                Title = "VMTest",
+                MessageContent = "VMContent",
+                DateSent = DateTime.Now,
+                ReceiverUserID = "1",
+                SenderUserID = "1",
+                UserName = "Joe"
+            };
+
+            var result = messaging.MVCSend(vm);
+            Assert.AreEqual(200, result);
+        }
+
+        [TestMethod]
+        public void MVCSaveFail()
+        {
+            MessageVM vm = new MessageVM()
+            {
+                MessageID = 1,
+                Title = "VMTest",
+                MessageContent = "VMContent",
+                DateSent = DateTime.Now,
+                UserName = "Joe"
+            };
+
+            var result = messaging.MVCSend(vm);
+            Assert.AreEqual(400, result);
+        }
+        #endregion
+
+        #region ApiMessaging Tests
+
+        [TestMethod]
+        public void ApisaveMessage200()
+        {
+            var result = apiMessaging.ApiSaveMessage(testMessage1);
+            Assert.AreEqual(200, result);
+        }
+
+        [TestMethod]
+        public void ApisaveMessage404()
+        {
+            var result = apiMessaging.ApiSaveMessage(null);
+            Assert.AreEqual(404, result);
+        }
+
+        [TestMethod]
+        public void ApisaveMessage400()
+        {
+            var result = apiMessaging.ApiSaveMessage(new Message());
+            Assert.AreEqual(400, result);
+        }
+
+        [TestMethod]
+        public void ApiPutMessage200()
+        {
+            var result = apiMessaging.ApiPut(1, testMessage1);
+            Assert.AreEqual(200, result);
+        }
+
+        [TestMethod]
+        public void ApiPutMessage400()
+        {
+            var result = apiMessaging.ApiPut(1, null);
+            Assert.AreEqual(400, result);
+        }
+
+        [TestMethod]
+        public void ApiPutMessage404()
+        {
+            var result = apiMessaging.ApiPut(5, new Message() { MessageID = 5 });
+            Assert.AreEqual(404, result);
+        }
+
+        [TestMethod]
+        public void ApiDeleteMessage200()
+        {
+            var result = apiMessaging.ApiDelete(1);
+            Assert.AreEqual(200, result);
+        }
+
+        [TestMethod]
+        public void ApiDeleteMessage404()
+        {
+            var result = apiMessaging.ApiDelete(7);
+            Assert.AreEqual(404, result);
+        }
+
         #endregion
     }
 }

@@ -75,25 +75,32 @@ namespace MessagingMicroService
 
         public MessageVM GetDetailsVM(int id)
         {
-            IActionResult HttpResult = messageCont.Get(id);
-
-            if (HttpResult is OkObjectResult)
+            try
             {
-                var result = HttpResult as OkObjectResult;
-                Message content = result.Value as Message;
-                User user = client.GetUser("http://localhost:51520/", "api/User/" + content.SenderUserID);
-                MessageVM vm = new MessageVM()
+                IActionResult HttpResult = messageCont.Get(id);
+
+                if (HttpResult is OkObjectResult)
                 {
-                    DateSent = content.DateSent,
-                    MessageContent = content.MessageContent,
-                    Title = content.Title,
-                    UserName = user.Name
+                    var result = HttpResult as OkObjectResult;
+                    Message content = result.Value as Message;
+                    User user = client.GetUser("http://localhost:51520/", "api/User/" + content.SenderUserID);
+                    MessageVM vm = new MessageVM()
+                    {
+                        DateSent = content.DateSent,
+                        MessageContent = content.MessageContent,
+                        Title = content.Title,
+                        UserName = user.Name
 
-                };
+                    };
 
-                return vm;
+                    return vm;
+                }
+                else
+                {
+                    return new MessageVM();
+                }
             }
-            else
+            catch (Exception e)
             {
                 return new MessageVM();
             }
@@ -117,7 +124,7 @@ namespace MessagingMicroService
             }
             catch (Exception e)
             {
-                return StatusCodes.Status404NotFound;
+                return StatusCodes.Status400BadRequest;
             }
         }
     }
